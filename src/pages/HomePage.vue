@@ -4,7 +4,7 @@
       <div
         v-for="project in projects"
         :key="project.id"
-        class="col-12 col-lg-6"
+        class="col-12 col-lg-6 p-5"
       >
         <ProjectCard :projectProp="project" />
       </div>

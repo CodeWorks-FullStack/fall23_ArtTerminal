@@ -10,6 +10,14 @@ class ProjectsService {
     AppState.projects = res.data.map((project) => new Project(project));
     logger.log(AppState.projects);
   }
+
+  async destroyProject(projectId) {
+    const res = await api.delete(`api/projects/${projectId}`);
+    logger.log("[DELETING PROJECT]", res.data);
+    AppState.projects = AppState.projects.filter(
+      (project) => project.id != projectId
+    );
+  }
 }
 
 export const projectsService = new ProjectsService();
